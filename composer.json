@@ -1,0 +1,35 @@
+{
+  "name": "osawa-koki/my-simple-rsa.php",
+  "description": "🐯🐯🐯 PHPでRSA暗号を実装してみる！",
+  "license": "Apache-2.0",
+	"config": {
+		"platform": {
+			"php": "8.2.12"
+		}
+	},
+  "scripts": {
+    "start": [
+      "php ./src/main.php"
+    ],
+    "lint": [
+      "php-cs-fixer check ./src/",
+      "php-cs-fixer check ./tests/"
+    ],
+    "lint:fix": [
+      "php-cs-fixer fix ./src/",
+      "php-cs-fixer fix ./tests/"
+    ],
+    "test": [
+      "phpunit"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "./src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.1",
+    "friendsofphp/php-cs-fixer": "^3.54"
+  }
+}

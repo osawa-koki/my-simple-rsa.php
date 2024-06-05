@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,php-cs-fixer,composer,visualstudiocode,vim
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,php-cs-fixer,composer,visualstudiocode,vim
+# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,phpunit,composer,visualstudiocode,vim
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,phpunit,composer,visualstudiocode,vim
 
 ### Composer ###
 composer.phar
@@ -57,15 +57,20 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-### PHP-CS-Fixer ###
-# Covers PHP CS Fixer
-# Reference: https://cs.symfony.com/
+### PHPUnit ###
+# Covers PHPUnit
+# Reference: https://phpunit.de/
 
 # Generated files
-.php-cs-fixer.cache
+.phpunit.result.cache
+.phpunit.cache
 
-# Local config See: https://cs.symfony.com/doc/config.html
-.php-cs-fixer.php
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Build data
+/build/
 
 ### Vim ###
 # Swap
@@ -132,4 +137,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,php-cs-fixer,composer,visualstudiocode,vim
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,phpunit,composer,visualstudiocode,vim
