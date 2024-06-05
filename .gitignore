@@ -77,7 +77,7 @@ Temporary Items
 
 # PHPUnit
 /app/phpunit.xml
-/phpunit.xml
+# /phpunit.xml
 
 # Build data
 /build/
