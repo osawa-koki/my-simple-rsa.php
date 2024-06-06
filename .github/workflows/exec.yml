@@ -27,4 +27,4 @@ jobs:
     - name: Install dependencies
       run: composer install --no-progress --no-dev
     - name: Run program
-      run: composer run-script start
+      run: composer run-script start -- p1=101 p2=203 m=message!!!
