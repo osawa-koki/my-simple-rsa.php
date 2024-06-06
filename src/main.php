@@ -4,6 +4,7 @@ require_once './src/getPrivateKey.php';
 require_once './src/getPublicKey.php';
 require_once './src/encrypt.php';
 require_once './src/decrypt.php';
+require_once './src/isPrime.php';
 
 foreach ($GLOBALS['argv'] as $arg) {
     if (preg_match('/^p1=(.*)$/', $arg, $matches)) {
@@ -22,6 +23,11 @@ echo "p1: $p1, p2: $p2, m: $m\n";
 
 if ($p1 == null || $p2 == null || $m == null) {
     echo "Usage: php main.php p1=XXX p2=XXX m=XXX\n";
+    exit(1);
+}
+
+if (!isPrime((int)$p1) || !isPrime((int)$p2)) {
+    echo "Error: p1 and p2 must be prime numbers\n";
     exit(1);
 }
 
