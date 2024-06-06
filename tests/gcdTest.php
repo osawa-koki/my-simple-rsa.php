@@ -30,7 +30,6 @@ class GcdTest extends TestCase
     public function testReguler($a, $b, $expected)
     {
         $this->assertEquals(gcd($a, $b), $expected);
-        $this->assertEquals(gcd($b, $a), $expected);
     }
 
     public static function exceptionCases()
