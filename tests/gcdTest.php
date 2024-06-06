@@ -6,7 +6,7 @@ require_once('./src/gcd.php');
 
 class GcdTest extends TestCase
 {
-    public function testGcd()
+    public function testReguler()
     {
         $testCases = [
             ['inputs' => [2, 3], 'expected_output' => 1],
@@ -28,6 +28,22 @@ class GcdTest extends TestCase
 
             $this->assertEquals(gcd($inputs[0], $inputs[1]), $expectedOutput);
             $this->assertEquals(gcd($inputs[1], $inputs[0]), $expectedOutput);
+        }
+    }
+
+    public function testException()
+    {
+        $testCases = [
+            ['inputs' => [-1, 3]],
+            ['inputs' => [1, -3]],
+            ['inputs' => [1.5, 3]],
+            ['inputs' => [1, 3.5]],
+        ];
+        foreach ($testCases as $testCase) {
+            $inputs = $testCase['inputs'];
+
+            $this->expectException(Exception::class);
+            gcd($inputs[0], $inputs[1]);
         }
     }
 }
