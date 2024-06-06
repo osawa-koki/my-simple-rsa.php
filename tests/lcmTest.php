@@ -11,17 +11,6 @@ class LcmTest extends TestCase
     public static function regulerCases()
     {
         return [
-            // { inputs: [2, 3], expected_output: 6 },
-            // { inputs: [10, 25], expected_output: 50 },
-            // { inputs: [14, 21], expected_output: 42 },
-            // { inputs: [15, 18], expected_output: 90 },
-            // { inputs: [35, 49], expected_output: 245 },
-            // { inputs: [100, 125], expected_output: 500 },
-            // { inputs: [72, 96], expected_output: 288 },
-            // { inputs: [168, 216], expected_output: 1512 },
-            // { inputs: [111, 123], expected_output: 4551 },
-            // { inputs: [222, 123], expected_output: 9102 },
-            // { inputs: [0, 0], expected_output: 0 },
             [2, 3, 6],
             [10, 25, 50],
             [14, 21, 42],
