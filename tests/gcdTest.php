@@ -1,49 +1,53 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 require_once('./src/gcd.php');
 
 class GcdTest extends TestCase
 {
-    public function testReguler()
+    public static function regulerCases()
     {
-        $testCases = [
-            ['inputs' => [2, 3], 'expected_output' => 1],
-            ['inputs' => [10, 25], 'expected_output' => 5],
-            ['inputs' => [14, 21], 'expected_output' => 7],
-            ['inputs' => [15, 18], 'expected_output' => 3],
-            ['inputs' => [35, 49], 'expected_output' => 7],
-            ['inputs' => [100, 125], 'expected_output' => 25],
-            ['inputs' => [72, 96], 'expected_output' => 24],
-            ['inputs' => [168, 216], 'expected_output' => 24],
-            ['inputs' => [111, 123], 'expected_output' => 3],
-            ['inputs' => [222, 123], 'expected_output' => 3],
-            ['inputs' => [0, 0], 'expected_output' => 0],
+        return [
+            [2, 3, 1],
+            [10, 25, 5],
+            [14, 21, 7],
+            [15, 18, 3],
+            [35, 49, 7],
+            [100, 125, 25],
+            [72, 96, 24],
+            [168, 216, 24],
+            [111, 123, 3],
+            [222, 123, 3],
+            [0, 0, 0],
         ];
-
-        foreach ($testCases as $testCase) {
-            $inputs = $testCase['inputs'];
-            $expectedOutput = $testCase['expected_output'];
-
-            $this->assertEquals(gcd($inputs[0], $inputs[1]), $expectedOutput);
-            $this->assertEquals(gcd($inputs[1], $inputs[0]), $expectedOutput);
-        }
     }
 
-    public function testException()
+    #[Test]
+    #[DataProvider('regulerCases')]
+    public function testReguler($a, $b, $expected)
     {
-        $testCases = [
-            ['inputs' => [-1, 3]],
-            ['inputs' => [1, -3]],
-            ['inputs' => [1.5, 3]],
-            ['inputs' => [1, 3.5]],
-        ];
-        foreach ($testCases as $testCase) {
-            $inputs = $testCase['inputs'];
+        $this->assertEquals(gcd($a, $b), $expected);
+        $this->assertEquals(gcd($b, $a), $expected);
+    }
 
-            $this->expectException(Exception::class);
-            gcd($inputs[0], $inputs[1]);
-        }
+    public static function exceptionCases()
+    {
+        return [
+            [-1, 3],
+            [1, -3],
+            [1.5, 3],
+            [1, 3.5]
+        ];
+    }
+
+    #[Test]
+    #[DataProvider('exceptionCases')]
+    public function testException($a, $b)
+    {
+        $this->expectException(Exception::class);
+        gcd($a, $b);
     }
 }
